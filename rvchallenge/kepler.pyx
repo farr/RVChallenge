@@ -1,5 +1,6 @@
 import numpy as np
 cimport numpy as np
+cimport cython
 
 cdef extern from "math.h":
   double sqrt(double x)
@@ -47,6 +48,7 @@ cdef double kepler_solve_ea(double n, double e, double t):
 
   return E
 
+@cython.cdivision(True)
 cdef double kepler_solve_ta(double n, double e, double t):
   cdef double E, f
 

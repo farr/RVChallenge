@@ -1,6 +1,8 @@
+dist
 build
 *.so
 *.egg-info
 *~
 *.pyc
 .DS_Store
+.ipynb_checkpoints

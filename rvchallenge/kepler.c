@@ -1103,6 +1103,8 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
+/* Module declarations from 'cython' */
+
 /* Module declarations from 'rvchallenge.kepler' */
 static double __pyx_f_11rvchallenge_6kepler_kepler_f(double, double, double); /*proto*/
 static double __pyx_f_11rvchallenge_6kepler_kepler_fp(double, double); /*proto*/
@@ -1187,7 +1189,7 @@ static PyObject *__pyx_tuple__4;
 static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__6;
 
-/* "rvchallenge/kepler.pyx":14
+/* "rvchallenge/kepler.pyx":15
  *   double atan(double x)
  * 
  * cdef double kepler_f(double M, double E, double e):             # <<<<<<<<<<<<<<
@@ -1200,7 +1202,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_f(double __pyx_v_M, double __
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("kepler_f", 0);
 
-  /* "rvchallenge/kepler.pyx":15
+  /* "rvchallenge/kepler.pyx":16
  * 
  * cdef double kepler_f(double M, double E, double e):
  *   return E - e*sin(E) - M             # <<<<<<<<<<<<<<
@@ -1210,7 +1212,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_f(double __pyx_v_M, double __
   __pyx_r = ((__pyx_v_E - (__pyx_v_e * sin(__pyx_v_E))) - __pyx_v_M);
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":14
+  /* "rvchallenge/kepler.pyx":15
  *   double atan(double x)
  * 
  * cdef double kepler_f(double M, double E, double e):             # <<<<<<<<<<<<<<
@@ -1224,7 +1226,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_f(double __pyx_v_M, double __
   return __pyx_r;
 }
 
-/* "rvchallenge/kepler.pyx":17
+/* "rvchallenge/kepler.pyx":18
  *   return E - e*sin(E) - M
  * 
  * cdef double kepler_fp(double E, double e):             # <<<<<<<<<<<<<<
@@ -1237,7 +1239,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fp(double __pyx_v_E, double _
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("kepler_fp", 0);
 
-  /* "rvchallenge/kepler.pyx":18
+  /* "rvchallenge/kepler.pyx":19
  * 
  * cdef double kepler_fp(double E, double e):
  *   return 1.0 - e*cos(E)             # <<<<<<<<<<<<<<
@@ -1247,7 +1249,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fp(double __pyx_v_E, double _
   __pyx_r = (1.0 - (__pyx_v_e * cos(__pyx_v_E)));
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":17
+  /* "rvchallenge/kepler.pyx":18
  *   return E - e*sin(E) - M
  * 
  * cdef double kepler_fp(double E, double e):             # <<<<<<<<<<<<<<
@@ -1261,7 +1263,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fp(double __pyx_v_E, double _
   return __pyx_r;
 }
 
-/* "rvchallenge/kepler.pyx":20
+/* "rvchallenge/kepler.pyx":21
  *   return 1.0 - e*cos(E)
  * 
  * cdef double kepler_fpp(double E, double e):             # <<<<<<<<<<<<<<
@@ -1274,7 +1276,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fpp(double __pyx_v_E, double 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("kepler_fpp", 0);
 
-  /* "rvchallenge/kepler.pyx":21
+  /* "rvchallenge/kepler.pyx":22
  * 
  * cdef double kepler_fpp(double E, double e):
  *   return e*sin(E)             # <<<<<<<<<<<<<<
@@ -1284,7 +1286,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fpp(double __pyx_v_E, double 
   __pyx_r = (__pyx_v_e * sin(__pyx_v_E));
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":20
+  /* "rvchallenge/kepler.pyx":21
  *   return 1.0 - e*cos(E)
  * 
  * cdef double kepler_fpp(double E, double e):             # <<<<<<<<<<<<<<
@@ -1298,7 +1300,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fpp(double __pyx_v_E, double 
   return __pyx_r;
 }
 
-/* "rvchallenge/kepler.pyx":23
+/* "rvchallenge/kepler.pyx":24
  *   return e*sin(E)
  * 
  * cdef double kepler_fppp(double E, double e):             # <<<<<<<<<<<<<<
@@ -1311,7 +1313,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fppp(double __pyx_v_E, double
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("kepler_fppp", 0);
 
-  /* "rvchallenge/kepler.pyx":24
+  /* "rvchallenge/kepler.pyx":25
  * 
  * cdef double kepler_fppp(double E, double e):
  *   return e*cos(E)             # <<<<<<<<<<<<<<
@@ -1321,7 +1323,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fppp(double __pyx_v_E, double
   __pyx_r = (__pyx_v_e * cos(__pyx_v_E));
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":23
+  /* "rvchallenge/kepler.pyx":24
  *   return e*sin(E)
  * 
  * cdef double kepler_fppp(double E, double e):             # <<<<<<<<<<<<<<
@@ -1335,7 +1337,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_fppp(double __pyx_v_E, double
   return __pyx_r;
 }
 
-/* "rvchallenge/kepler.pyx":26
+/* "rvchallenge/kepler.pyx":27
  *   return e*cos(E)
  * 
  * cdef double kepler_solve_ea(double n, double e, double t):             # <<<<<<<<<<<<<<
@@ -1360,7 +1362,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("kepler_solve_ea", 0);
 
-  /* "rvchallenge/kepler.pyx":29
+  /* "rvchallenge/kepler.pyx":30
  *   cdef double M, E, f, fp, fpp, fppp, d
  * 
  *   M = fmod(n*t, 2.0*M_PI)             # <<<<<<<<<<<<<<
@@ -1369,7 +1371,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
  */
   __pyx_v_M = fmod((__pyx_v_n * __pyx_v_t), (2.0 * M_PI));
 
-  /* "rvchallenge/kepler.pyx":31
+  /* "rvchallenge/kepler.pyx":32
  *   M = fmod(n*t, 2.0*M_PI)
  * 
  *   if M < M_PI:             # <<<<<<<<<<<<<<
@@ -1379,7 +1381,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
   __pyx_t_1 = ((__pyx_v_M < M_PI) != 0);
   if (__pyx_t_1) {
 
-    /* "rvchallenge/kepler.pyx":32
+    /* "rvchallenge/kepler.pyx":33
  * 
  *   if M < M_PI:
  *       E = M + 0.85*e             # <<<<<<<<<<<<<<
@@ -1391,7 +1393,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
   }
   /*else*/ {
 
-    /* "rvchallenge/kepler.pyx":34
+    /* "rvchallenge/kepler.pyx":35
  *       E = M + 0.85*e
  *   else:
  *       E = M - 0.85*e             # <<<<<<<<<<<<<<
@@ -1402,7 +1404,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
   }
   __pyx_L3:;
 
-  /* "rvchallenge/kepler.pyx":36
+  /* "rvchallenge/kepler.pyx":37
  *       E = M - 0.85*e
  * 
  *   f = kepler_f(M, E, e)             # <<<<<<<<<<<<<<
@@ -1411,7 +1413,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
  */
   __pyx_v_f = __pyx_f_11rvchallenge_6kepler_kepler_f(__pyx_v_M, __pyx_v_E, __pyx_v_e);
 
-  /* "rvchallenge/kepler.pyx":37
+  /* "rvchallenge/kepler.pyx":38
  * 
  *   f = kepler_f(M, E, e)
  *   while fabs(f) > 1e-8:             # <<<<<<<<<<<<<<
@@ -1422,7 +1424,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
     __pyx_t_1 = ((fabs(__pyx_v_f) > 1e-8) != 0);
     if (!__pyx_t_1) break;
 
-    /* "rvchallenge/kepler.pyx":38
+    /* "rvchallenge/kepler.pyx":39
  *   f = kepler_f(M, E, e)
  *   while fabs(f) > 1e-8:
  *       fp=kepler_fp(E,e)             # <<<<<<<<<<<<<<
@@ -1431,7 +1433,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
  */
     __pyx_v_fp = __pyx_f_11rvchallenge_6kepler_kepler_fp(__pyx_v_E, __pyx_v_e);
 
-    /* "rvchallenge/kepler.pyx":39
+    /* "rvchallenge/kepler.pyx":40
  *   while fabs(f) > 1e-8:
  *       fp=kepler_fp(E,e)
  *       disc = sqrt(fabs(16.0*fp*fp - 20.0*f*kepler_fpp(E,e)))             # <<<<<<<<<<<<<<
@@ -1440,7 +1442,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
  */
     __pyx_v_disc = sqrt(fabs((((16.0 * __pyx_v_fp) * __pyx_v_fp) - ((20.0 * __pyx_v_f) * __pyx_f_11rvchallenge_6kepler_kepler_fpp(__pyx_v_E, __pyx_v_e)))));
 
-    /* "rvchallenge/kepler.pyx":40
+    /* "rvchallenge/kepler.pyx":41
  *       fp=kepler_fp(E,e)
  *       disc = sqrt(fabs(16.0*fp*fp - 20.0*f*kepler_fpp(E,e)))
  *       if fp > 0.0:             # <<<<<<<<<<<<<<
@@ -1450,7 +1452,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
     __pyx_t_1 = ((__pyx_v_fp > 0.0) != 0);
     if (__pyx_t_1) {
 
-      /* "rvchallenge/kepler.pyx":41
+      /* "rvchallenge/kepler.pyx":42
  *       disc = sqrt(fabs(16.0*fp*fp - 20.0*f*kepler_fpp(E,e)))
  *       if fp > 0.0:
  *           d=-5.0*f/(fp + disc)             # <<<<<<<<<<<<<<
@@ -1467,14 +1469,14 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
         #ifdef WITH_THREAD
         PyGILState_Release(__pyx_gilstate_save);
         #endif
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 42; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_v_d = (__pyx_t_2 / __pyx_t_3);
       goto __pyx_L6;
     }
     /*else*/ {
 
-      /* "rvchallenge/kepler.pyx":43
+      /* "rvchallenge/kepler.pyx":44
  *           d=-5.0*f/(fp + disc)
  *       else:
  *           d=-5.0*f/(fp - disc)             # <<<<<<<<<<<<<<
@@ -1491,13 +1493,13 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
         #ifdef WITH_THREAD
         PyGILState_Release(__pyx_gilstate_save);
         #endif
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 43; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_v_d = (__pyx_t_3 / __pyx_t_2);
     }
     __pyx_L6:;
 
-    /* "rvchallenge/kepler.pyx":45
+    /* "rvchallenge/kepler.pyx":46
  *           d=-5.0*f/(fp - disc)
  * 
  *       E += d             # <<<<<<<<<<<<<<
@@ -1506,7 +1508,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
  */
     __pyx_v_E = (__pyx_v_E + __pyx_v_d);
 
-    /* "rvchallenge/kepler.pyx":46
+    /* "rvchallenge/kepler.pyx":47
  * 
  *       E += d
  *       f = kepler_f(M,E,e)             # <<<<<<<<<<<<<<
@@ -1516,17 +1518,17 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
     __pyx_v_f = __pyx_f_11rvchallenge_6kepler_kepler_f(__pyx_v_M, __pyx_v_E, __pyx_v_e);
   }
 
-  /* "rvchallenge/kepler.pyx":48
+  /* "rvchallenge/kepler.pyx":49
  *       f = kepler_f(M,E,e)
  * 
  *   return E             # <<<<<<<<<<<<<<
  * 
- * cdef double kepler_solve_ta(double n, double e, double t):
+ * @cython.cdivision(True)
  */
   __pyx_r = __pyx_v_E;
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":26
+  /* "rvchallenge/kepler.pyx":27
  *   return e*cos(E)
  * 
  * cdef double kepler_solve_ea(double n, double e, double t):             # <<<<<<<<<<<<<<
@@ -1543,9 +1545,9 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(double __pyx_v_n, do
   return __pyx_r;
 }
 
-/* "rvchallenge/kepler.pyx":50
- *   return E
+/* "rvchallenge/kepler.pyx":52
  * 
+ * @cython.cdivision(True)
  * cdef double kepler_solve_ta(double n, double e, double t):             # <<<<<<<<<<<<<<
  *   cdef double E, f
  * 
@@ -1556,15 +1558,10 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ta(double __pyx_v_n, do
   double __pyx_v_f;
   double __pyx_r;
   __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
-  double __pyx_t_2;
-  int __pyx_t_3;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
+  int __pyx_t_1;
   __Pyx_RefNannySetupContext("kepler_solve_ta", 0);
 
-  /* "rvchallenge/kepler.pyx":53
+  /* "rvchallenge/kepler.pyx":55
  *   cdef double E, f
  * 
  *   E = kepler_solve_ea(n,e,t)             # <<<<<<<<<<<<<<
@@ -1573,38 +1570,26 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ta(double __pyx_v_n, do
  */
   __pyx_v_E = __pyx_f_11rvchallenge_6kepler_kepler_solve_ea(__pyx_v_n, __pyx_v_e, __pyx_v_t);
 
-  /* "rvchallenge/kepler.pyx":55
+  /* "rvchallenge/kepler.pyx":57
  *   E = kepler_solve_ea(n,e,t)
  * 
  *   f = 2.0*atan(sqrt((1.0+e)/(1.0-e))*tan(E/2.0))             # <<<<<<<<<<<<<<
  * 
  *   if f < 0.0:
  */
-  __pyx_t_1 = (1.0 + __pyx_v_e);
-  __pyx_t_2 = (1.0 - __pyx_v_e);
-  if (unlikely(__pyx_t_2 == 0)) {
-    #ifdef WITH_THREAD
-    PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
-    #endif
-    PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    #ifdef WITH_THREAD
-    PyGILState_Release(__pyx_gilstate_save);
-    #endif
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
-  __pyx_v_f = (2.0 * atan((sqrt((__pyx_t_1 / __pyx_t_2)) * tan((__pyx_v_E / 2.0)))));
+  __pyx_v_f = (2.0 * atan((sqrt(((1.0 + __pyx_v_e) / (1.0 - __pyx_v_e))) * tan((__pyx_v_E / 2.0)))));
 
-  /* "rvchallenge/kepler.pyx":57
+  /* "rvchallenge/kepler.pyx":59
  *   f = 2.0*atan(sqrt((1.0+e)/(1.0-e))*tan(E/2.0))
  * 
  *   if f < 0.0:             # <<<<<<<<<<<<<<
  *       f += 2.0*M_PI
  * 
  */
-  __pyx_t_3 = ((__pyx_v_f < 0.0) != 0);
-  if (__pyx_t_3) {
+  __pyx_t_1 = ((__pyx_v_f < 0.0) != 0);
+  if (__pyx_t_1) {
 
-    /* "rvchallenge/kepler.pyx":58
+    /* "rvchallenge/kepler.pyx":60
  * 
  *   if f < 0.0:
  *       f += 2.0*M_PI             # <<<<<<<<<<<<<<
@@ -1616,7 +1601,7 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ta(double __pyx_v_n, do
   }
   __pyx_L3:;
 
-  /* "rvchallenge/kepler.pyx":60
+  /* "rvchallenge/kepler.pyx":62
  *       f += 2.0*M_PI
  * 
  *   return f             # <<<<<<<<<<<<<<
@@ -1626,24 +1611,21 @@ static double __pyx_f_11rvchallenge_6kepler_kepler_solve_ta(double __pyx_v_n, do
   __pyx_r = __pyx_v_f;
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":50
- *   return E
+  /* "rvchallenge/kepler.pyx":52
  * 
+ * @cython.cdivision(True)
  * cdef double kepler_solve_ta(double n, double e, double t):             # <<<<<<<<<<<<<<
  *   cdef double E, f
  * 
  */
 
   /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_WriteUnraisable("rvchallenge.kepler.kepler_solve_ta", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
-  __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "rvchallenge/kepler.pyx":62
+/* "rvchallenge/kepler.pyx":64
  *   return f
  * 
  * cpdef np.ndarray[np.float_t, ndim=2] rv_model(np.ndarray[np.float_t, ndim=1] ts,             # <<<<<<<<<<<<<<
@@ -1737,36 +1719,36 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
   __pyx_pybuffernd_ns.rcbuffer = &__pyx_pybuffer_ns;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ts.rcbuffer->pybuffer, (PyObject*)__pyx_v_ts, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ts.rcbuffer->pybuffer, (PyObject*)__pyx_v_ts, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_ts.diminfo[0].strides = __pyx_pybuffernd_ts.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_ts.diminfo[0].shape = __pyx_pybuffernd_ts.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Ks.rcbuffer->pybuffer, (PyObject*)__pyx_v_Ks, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Ks.rcbuffer->pybuffer, (PyObject*)__pyx_v_Ks, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_Ks.diminfo[0].strides = __pyx_pybuffernd_Ks.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_Ks.diminfo[0].shape = __pyx_pybuffernd_Ks.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_es.rcbuffer->pybuffer, (PyObject*)__pyx_v_es, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_es.rcbuffer->pybuffer, (PyObject*)__pyx_v_es, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_es.diminfo[0].strides = __pyx_pybuffernd_es.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_es.diminfo[0].shape = __pyx_pybuffernd_es.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_omegas.rcbuffer->pybuffer, (PyObject*)__pyx_v_omegas, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_omegas.rcbuffer->pybuffer, (PyObject*)__pyx_v_omegas, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_omegas.diminfo[0].strides = __pyx_pybuffernd_omegas.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_omegas.diminfo[0].shape = __pyx_pybuffernd_omegas.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_chis.rcbuffer->pybuffer, (PyObject*)__pyx_v_chis, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_chis.rcbuffer->pybuffer, (PyObject*)__pyx_v_chis, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_chis.diminfo[0].strides = __pyx_pybuffernd_chis.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_chis.diminfo[0].shape = __pyx_pybuffernd_chis.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ns.rcbuffer->pybuffer, (PyObject*)__pyx_v_ns, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ns.rcbuffer->pybuffer, (PyObject*)__pyx_v_ns, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_ns.diminfo[0].strides = __pyx_pybuffernd_ns.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_ns.diminfo[0].shape = __pyx_pybuffernd_ns.rcbuffer->pybuffer.shape[0];
 
-  /* "rvchallenge/kepler.pyx":69
+  /* "rvchallenge/kepler.pyx":71
  *                                               np.ndarray[np.float_t, ndim=1] ns):
  *   cdef int i, j
  *   cdef int npl=Ks.shape[0], nts=ts.shape[0]             # <<<<<<<<<<<<<<
@@ -1776,23 +1758,23 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
   __pyx_v_npl = (__pyx_v_Ks->dimensions[0]);
   __pyx_v_nts = (__pyx_v_ts->dimensions[0]);
 
-  /* "rvchallenge/kepler.pyx":71
+  /* "rvchallenge/kepler.pyx":73
  *   cdef int npl=Ks.shape[0], nts=ts.shape[0]
  *   cdef double t, K, e, omega, chi, n, t0, f, ecw
  *   cdef np.ndarray[np.float_t, ndim=2] rvs = np.zeros((npl, nts))             # <<<<<<<<<<<<<<
  * 
  *   for i in range(npl):
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_npl); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_npl); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_nts); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_nts); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -1811,28 +1793,28 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_2, 0+1, __pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_rvs.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_rvs = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_rvs.rcbuffer->pybuffer.buf = NULL;
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     } else {__pyx_pybuffernd_rvs.diminfo[0].strides = __pyx_pybuffernd_rvs.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_rvs.diminfo[0].shape = __pyx_pybuffernd_rvs.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_rvs.diminfo[1].strides = __pyx_pybuffernd_rvs.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_rvs.diminfo[1].shape = __pyx_pybuffernd_rvs.rcbuffer->pybuffer.shape[1];
     }
   }
@@ -1840,7 +1822,7 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
   __pyx_v_rvs = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "rvchallenge/kepler.pyx":73
+  /* "rvchallenge/kepler.pyx":75
  *   cdef np.ndarray[np.float_t, ndim=2] rvs = np.zeros((npl, nts))
  * 
  *   for i in range(npl):             # <<<<<<<<<<<<<<
@@ -1851,7 +1833,7 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "rvchallenge/kepler.pyx":74
+    /* "rvchallenge/kepler.pyx":76
  * 
  *   for i in range(npl):
  *       K=Ks[i]             # <<<<<<<<<<<<<<
@@ -1866,11 +1848,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     } else if (unlikely(__pyx_t_9 >= __pyx_pybuffernd_Ks.diminfo[0].shape)) __pyx_t_10 = 0;
     if (unlikely(__pyx_t_10 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_10);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 74; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __pyx_v_K = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_Ks.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_Ks.diminfo[0].strides));
 
-    /* "rvchallenge/kepler.pyx":75
+    /* "rvchallenge/kepler.pyx":77
  *   for i in range(npl):
  *       K=Ks[i]
  *       e=es[i]             # <<<<<<<<<<<<<<
@@ -1885,11 +1867,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     } else if (unlikely(__pyx_t_10 >= __pyx_pybuffernd_es.diminfo[0].shape)) __pyx_t_11 = 0;
     if (unlikely(__pyx_t_11 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_11);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 75; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 77; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __pyx_v_e = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_es.rcbuffer->pybuffer.buf, __pyx_t_10, __pyx_pybuffernd_es.diminfo[0].strides));
 
-    /* "rvchallenge/kepler.pyx":76
+    /* "rvchallenge/kepler.pyx":78
  *       K=Ks[i]
  *       e=es[i]
  *       omega=omegas[i]             # <<<<<<<<<<<<<<
@@ -1904,11 +1886,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     } else if (unlikely(__pyx_t_11 >= __pyx_pybuffernd_omegas.diminfo[0].shape)) __pyx_t_12 = 0;
     if (unlikely(__pyx_t_12 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_12);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __pyx_v_omega = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_omegas.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_omegas.diminfo[0].strides));
 
-    /* "rvchallenge/kepler.pyx":77
+    /* "rvchallenge/kepler.pyx":79
  *       e=es[i]
  *       omega=omegas[i]
  *       chi=chis[i]             # <<<<<<<<<<<<<<
@@ -1923,11 +1905,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_chis.diminfo[0].shape)) __pyx_t_13 = 0;
     if (unlikely(__pyx_t_13 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_13);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 77; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __pyx_v_chi = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_chis.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_chis.diminfo[0].strides));
 
-    /* "rvchallenge/kepler.pyx":78
+    /* "rvchallenge/kepler.pyx":80
  *       omega=omegas[i]
  *       chi=chis[i]
  *       n=ns[i]             # <<<<<<<<<<<<<<
@@ -1942,11 +1924,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_ns.diminfo[0].shape)) __pyx_t_14 = 0;
     if (unlikely(__pyx_t_14 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_14);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 80; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __pyx_v_n = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_ns.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_ns.diminfo[0].strides));
 
-    /* "rvchallenge/kepler.pyx":79
+    /* "rvchallenge/kepler.pyx":81
  *       chi=chis[i]
  *       n=ns[i]
  *       t0 = -chi*2.0*M_PI/n             # <<<<<<<<<<<<<<
@@ -1962,11 +1944,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
       #ifdef WITH_THREAD
       PyGILState_Release(__pyx_gilstate_save);
       #endif
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 81; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __pyx_v_t0 = (__pyx_t_15 / __pyx_v_n);
 
-    /* "rvchallenge/kepler.pyx":80
+    /* "rvchallenge/kepler.pyx":82
  *       n=ns[i]
  *       t0 = -chi*2.0*M_PI/n
  *       ecw=e*cos(omega)             # <<<<<<<<<<<<<<
@@ -1975,7 +1957,7 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
  */
     __pyx_v_ecw = (__pyx_v_e * cos(__pyx_v_omega));
 
-    /* "rvchallenge/kepler.pyx":82
+    /* "rvchallenge/kepler.pyx":84
  *       ecw=e*cos(omega)
  * 
  *       for j in range(nts):             # <<<<<<<<<<<<<<
@@ -1986,7 +1968,7 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
     for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_14; __pyx_t_16+=1) {
       __pyx_v_j = __pyx_t_16;
 
-      /* "rvchallenge/kepler.pyx":83
+      /* "rvchallenge/kepler.pyx":85
  * 
  *       for j in range(nts):
  *           t = ts[j]             # <<<<<<<<<<<<<<
@@ -2001,11 +1983,11 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
       } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_ts.diminfo[0].shape)) __pyx_t_18 = 0;
       if (unlikely(__pyx_t_18 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_18);
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 83; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 85; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_v_t = (*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_ts.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_ts.diminfo[0].strides));
 
-      /* "rvchallenge/kepler.pyx":84
+      /* "rvchallenge/kepler.pyx":86
  *       for j in range(nts):
  *           t = ts[j]
  *           f = kepler_solve_ta(n, e, (t-t0))             # <<<<<<<<<<<<<<
@@ -2014,7 +1996,7 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
  */
       __pyx_v_f = __pyx_f_11rvchallenge_6kepler_kepler_solve_ta(__pyx_v_n, __pyx_v_e, (__pyx_v_t - __pyx_v_t0));
 
-      /* "rvchallenge/kepler.pyx":86
+      /* "rvchallenge/kepler.pyx":88
  *           f = kepler_solve_ta(n, e, (t-t0))
  * 
  *           rvs[i,j] = K*(cos(f + omega) + ecw)             # <<<<<<<<<<<<<<
@@ -2034,13 +2016,13 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
       } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_rvs.diminfo[1].shape)) __pyx_t_20 = 1;
       if (unlikely(__pyx_t_20 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_20);
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float_t *, __pyx_pybuffernd_rvs.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_rvs.diminfo[0].strides, __pyx_t_19, __pyx_pybuffernd_rvs.diminfo[1].strides) = (__pyx_v_K * (cos((__pyx_v_f + __pyx_v_omega)) + __pyx_v_ecw));
     }
   }
 
-  /* "rvchallenge/kepler.pyx":88
+  /* "rvchallenge/kepler.pyx":90
  *           rvs[i,j] = K*(cos(f + omega) + ecw)
  * 
  *   return rvs             # <<<<<<<<<<<<<<
@@ -2050,7 +2032,7 @@ static PyArrayObject *__pyx_f_11rvchallenge_6kepler_rv_model(PyArrayObject *__py
   __pyx_r = ((PyArrayObject *)__pyx_v_rvs);
   goto __pyx_L0;
 
-  /* "rvchallenge/kepler.pyx":62
+  /* "rvchallenge/kepler.pyx":64
  *   return f
  * 
  * cpdef np.ndarray[np.float_t, ndim=2] rv_model(np.ndarray[np.float_t, ndim=1] ts,             # <<<<<<<<<<<<<<
@@ -2132,31 +2114,31 @@ static PyObject *__pyx_pw_11rvchallenge_6kepler_1rv_model(PyObject *__pyx_self, 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Ks)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_es)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_omegas)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_chis)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ns)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "rv_model") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "rv_model") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -2177,18 +2159,18 @@ static PyObject *__pyx_pw_11rvchallenge_6kepler_1rv_model(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("rv_model", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("rvchallenge.kepler.rv_model", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ts), __pyx_ptype_5numpy_ndarray, 1, "ts", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Ks), __pyx_ptype_5numpy_ndarray, 1, "Ks", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 63; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_es), __pyx_ptype_5numpy_ndarray, 1, "es", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_omegas), __pyx_ptype_5numpy_ndarray, 1, "omegas", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 65; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_chis), __pyx_ptype_5numpy_ndarray, 1, "chis", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ns), __pyx_ptype_5numpy_ndarray, 1, "ns", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ts), __pyx_ptype_5numpy_ndarray, 1, "ts", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_Ks), __pyx_ptype_5numpy_ndarray, 1, "Ks", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 65; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_es), __pyx_ptype_5numpy_ndarray, 1, "es", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 66; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_omegas), __pyx_ptype_5numpy_ndarray, 1, "omegas", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_chis), __pyx_ptype_5numpy_ndarray, 1, "chis", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 68; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_ns), __pyx_ptype_5numpy_ndarray, 1, "ns", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 69; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_11rvchallenge_6kepler_rv_model(__pyx_self, __pyx_v_ts, __pyx_v_Ks, __pyx_v_es, __pyx_v_omegas, __pyx_v_chis, __pyx_v_ns);
 
   /* function exit code */
@@ -2246,36 +2228,36 @@ static PyObject *__pyx_pf_11rvchallenge_6kepler_rv_model(CYTHON_UNUSED PyObject 
   __pyx_pybuffernd_ns.rcbuffer = &__pyx_pybuffer_ns;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ts.rcbuffer->pybuffer, (PyObject*)__pyx_v_ts, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ts.rcbuffer->pybuffer, (PyObject*)__pyx_v_ts, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_ts.diminfo[0].strides = __pyx_pybuffernd_ts.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_ts.diminfo[0].shape = __pyx_pybuffernd_ts.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Ks.rcbuffer->pybuffer, (PyObject*)__pyx_v_Ks, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Ks.rcbuffer->pybuffer, (PyObject*)__pyx_v_Ks, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_Ks.diminfo[0].strides = __pyx_pybuffernd_Ks.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_Ks.diminfo[0].shape = __pyx_pybuffernd_Ks.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_es.rcbuffer->pybuffer, (PyObject*)__pyx_v_es, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_es.rcbuffer->pybuffer, (PyObject*)__pyx_v_es, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_es.diminfo[0].strides = __pyx_pybuffernd_es.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_es.diminfo[0].shape = __pyx_pybuffernd_es.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_omegas.rcbuffer->pybuffer, (PyObject*)__pyx_v_omegas, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_omegas.rcbuffer->pybuffer, (PyObject*)__pyx_v_omegas, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_omegas.diminfo[0].strides = __pyx_pybuffernd_omegas.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_omegas.diminfo[0].shape = __pyx_pybuffernd_omegas.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_chis.rcbuffer->pybuffer, (PyObject*)__pyx_v_chis, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_chis.rcbuffer->pybuffer, (PyObject*)__pyx_v_chis, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_chis.diminfo[0].strides = __pyx_pybuffernd_chis.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_chis.diminfo[0].shape = __pyx_pybuffernd_chis.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ns.rcbuffer->pybuffer, (PyObject*)__pyx_v_ns, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_ns.rcbuffer->pybuffer, (PyObject*)__pyx_v_ns, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_pybuffernd_ns.diminfo[0].strides = __pyx_pybuffernd_ns.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_ns.diminfo[0].shape = __pyx_pybuffernd_ns.rcbuffer->pybuffer.shape[0];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_11rvchallenge_6kepler_rv_model(__pyx_v_ts, __pyx_v_Ks, __pyx_v_es, __pyx_v_omegas, __pyx_v_chis, __pyx_v_ns, 0)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_11rvchallenge_6kepler_rv_model(__pyx_v_ts, __pyx_v_Ks, __pyx_v_es, __pyx_v_omegas, __pyx_v_chis, __pyx_v_ns, 0)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 64; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4360,7 +4342,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 75; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 802; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
@@ -4551,14 +4533,14 @@ PyMODINIT_FUNC PyInit_kepler(void)
   /* "rvchallenge/kepler.pyx":1
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
- * 
+ * cimport cython
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "rvchallenge/kepler.pyx":62
+  /* "rvchallenge/kepler.pyx":64
  *   return f
  * 
  * cpdef np.ndarray[np.float_t, ndim=2] rv_model(np.ndarray[np.float_t, ndim=1] ts,             # <<<<<<<<<<<<<<

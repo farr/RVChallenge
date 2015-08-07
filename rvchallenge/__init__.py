@@ -1,1 +1,1 @@
-__all__ = ['kepler', 'regres_ar1', 'run', 'rv_model']
+__all__ = ['kepler', 'posterior', 'run', 'rv_model']
