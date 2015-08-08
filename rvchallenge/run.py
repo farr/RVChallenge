@@ -88,8 +88,17 @@ def convergence_plots(sampler):
 def periodogram(sampler, resid, pmin=3):
     logpost = sampler.lnprobfn.f
 
-    plt.figure()
-    plt.errorbar(logpost.t, resid, logpost.dy, fmt='.')
+    if logpost.nkep == 0 and logpost.Pfixed is None:
+        plt.figure()
+        plt.errorbar(logpost.t, resid, logpost.dy, fmt='.')
+    else:
+        pers = np.array([logpost.get_periods(p) for p in sampler.flatchain])
+        pers = np.mean(pers, axis=0)
+
+        for p in pers:
+            plt.figure()
+            plt.title('P = {}'.format(p))
+            plt.errorbar(logpost.t % p, resid, logpost.dy, fmt='.')
 
     T = logpost.t[-1] - logpost.t[0]
     dt = np.min(np.diff(logpost.t))
@@ -103,13 +112,19 @@ def periodogram(sampler, resid, pmin=3):
     N = len(logpost.t)
     
     plt.figure()
-    plt.plot(1.0/fs, np.sqrt(4*psd/N)*1000, '-k', label='Raw')
-    plt.plot(1.0/fs, np.sqrt(4*rpsd/N)*1000, '-b', label='Cleaned')
-    plt.legend(loc='upper right')
+    plt.title('Raw')
+    plt.plot(1.0/fs, np.sqrt(4*psd/N)*1000, '-k')
     plt.xscale('log')
     plt.xlabel(r'$P$ (day)')
     plt.ylabel(r'$A$ ($\mathrm{m}/\mathrm{s}$)')
 
+    plt.figure()
+    plt.title('Cleaned')
+    plt.plot(1.0/fs, np.sqrt(4*rpsd/N)*1000, '-b')
+    plt.xscale('log')
+    plt.xlabel(r'$P$ (day)')
+    plt.ylabel(r'$A$ ($\mathrm{m}/\mathrm{s}$)')
+    
     pers = 1.0/fs
     sel = pers > pmin
     ibest = np.argmax(rpsd[sel])
