@@ -46,7 +46,15 @@ function kepler_solve_ta(n, e, t)
     f
 end
 
-"Returns "
+""" 
+`rv_model(ts, K, e, omega, chi, P)`
+
+Returns the radial velocity at times `ts` for the system with
+semi-amplitude `K`, eccentricity `e`, argument of pericentre `omega`,
+phase at a `t=0` of `2*pi*chi`, and period `P`.  These parameter
+arguments can also be vectorised, in which case the returned array has
+size `(ntimes, nplanets)`.  
+"""
 function rv_model(ts::Array{Float64, 1},
                   K::Float64,
                   e::Float64,
