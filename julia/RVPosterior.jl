@@ -12,16 +12,22 @@ immutable PhysicalParams
     betas::Array{Float64, 1}
     pers::Array{Float64, 1}
     vels::Array{Float64, 1}
-    eccs::Array{Float64, 1}
-    omegas::Array{Float64, 1}
+    ecws::Array{Float64, 1}
+    esws::Array{Float64, 1}
     chis::Array{Float64, 1}
 end
 
 nplanets(p::PhysicalParams) = size(p.pers,1)
 npred(p::PhysicalParams) = size(p.betas,1)
 
+ecc(p::PhysicalParams) = sqrt(p.ecws.*p.ecws + p.esws.*p.esws)
+omega(p::PhysicalParams) = atan2(p.esws, p.ecws)
+
 function rvs(p::PhysicalParams, ts::Array{Float64, 1})
-    rvs = Kepler.rv_model(ts, p.vels, p.eccs, p.omegas, p.chis, p.pers)
+    es = ecc(p)
+    omegas = omega(p)
+
+    rvs = Kepler.rv_model(ts, p.vels, es, omegas, p.chis, p.pers)
     sum(rvs, 2)    
 end
 
@@ -86,18 +92,18 @@ function toparams(post, v)
     if post.npl > 0
         pers = v[5+nbet:5:end]
         vels = v[5+nbet+1:5:end]
-        eccs = v[5+nbet+2:5:end]
-        omegas = v[5+nbet+3:5:end]
+        ecws = v[5+nbet+2:5:end]
+        esws = v[5+nbet+3:5:end]
         chis = v[5+nbet+4:5:end]
     else
         pers = zeros(0)
         vels = zeros(0)
-        eccs = zeros(0)
-        omegas = zeros(0)
+        ecws = zeros(0)
+        esws = zeros(0)
         chis = zeros(0)
     end
 
-    PhysicalParams(mu, sigma, tau, nu, betas, pers, vels, eccs, omegas, chis)
+    PhysicalParams(mu, sigma, tau, nu, betas, pers, vels, ecws, esws, chis)
 end
 
 function tov(post, p)
@@ -118,8 +124,8 @@ function tov(post, p)
     if post.npl > 0
         v[5+nbet:5:end] = p.pers
         v[5+nbet+1:5:end] = p.vels
-        v[5+nbet+2:5:end] = p.eccs
-        v[5+nbet+3:5:end] = p.omegas
+        v[5+nbet+2:5:end] = p.ecws
+        v[5+nbet+3:5:end] = p.esws
         v[5+nbet+4:5:end] = p.chis
     end
 
@@ -137,20 +143,32 @@ function logprior(post, p, v)
         return -Inf
     end
 
+    T = post.ts[end] - post.ts[1]
+    vmin = minimum(post.vs)
+    vmax = maximum(post.vs)
+
+    V = vmax - vmin
+
     if post.npl > 0
         for i in 1:post.npl
             if p.pers[i] < 0.0
                 return -Inf
             end
+            if p.pers[i] > 2.0*T
+                return -Inf
+            end
             if p.vels[i] < 0.0
                 return -Inf
             end
-            if p.eccs[i] < 0.0 || p.eccs[i] > 1.0
+            if p.vels[i] > 2.0*V
                 return -Inf
             end
-            if p.omegas[i] < 0.0 || p.omegas[i] > 2.0*pi
+
+            # Flat uniform prior in x-y plane out to e = 1
+            if p.ecws[i]*p.ecws[i] + p.esws[i]*p.esws[i] > 1.0
                 return -Inf
             end
+            
             if p.chis[i] < 0.0 || p.chis[i] > 1.0
                 return -Inf
             end
@@ -182,8 +200,8 @@ function addplanet(post, ps::Array{Float64, 2}, P0, K0)
         p = toparams(new_post, cat(1, ps[:,i], zeros(5)))
         p.pers[end] = P0 + 1e-5*randn()
         p.vels[end] = K0 + 1e-5*randn()
-        p.eccs[end] = 0.1*rand()
-        p.omegas[end] = 2.0*pi*rand()
+        p.ecws[end] = 0.1*rand()
+        p.esws[end] = 0.1*rand()
         p.chis[end] = rand()
 
         new_ps[:,i] = tov(new_post, p)
@@ -210,6 +228,41 @@ function load_samples(io, nwalk)
     ps = reshape(ps, size(ps,1), div(size(ps,2),nwalk), nwalk)
 
     permutedims(ps, [1, 3, 2])
+end
+
+function run_to_convergence(post, ps0, lnps0; nmax = 128000)
+    n = 1000
+    thin = 10
+
+    ps = reshape(ps0, (size(ps0,1), size(ps0,2), 1))
+    lnps = reshape(lnps0, (size(lnps0, 1), 1))
+    
+    f = x -> lnprob(post, x)
+
+    while true
+        ps, lnps = Ensemble.EnsembleSampler.run_mcmc(ps0, lnps0, f, n, thin=thin)
+        rs = Ensemble.Acor.gelman_rubin_rs(ps)
+
+        rmax = maximum(rs)
+        
+        println("Ran MCMC for $n steps; rmax is $rmax")
+        
+        if rmax < 1.1
+            break
+        end
+
+        ps0 = ps[:,:,end]
+        lnps0 = lnps[:,end]
+        n = n*2
+        thin = thin*2
+
+        if n > nmax
+            println("Maximum number of iterations exceeded!")
+            return ps, lnps
+        end
+    end
+
+    ps, lnps
 end
 
 end
