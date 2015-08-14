@@ -77,34 +77,41 @@ end
 
 function toparams(post, v)
     nplp = post.npl*5
-    nbet = size(v, 1) - 4 - nplp
+    nbet = size(v,1) - 4 - nplp
 
     mu = v[1]
-
-    sigma = v[2]
-
-    tau = v[3]
-
-    nu = v[4]
+    sigma = exp(v[2])
+    tau = exp(v[3])
+    nu = exp(v[4])
 
     betas = v[5:5+nbet-1]
 
-    if post.npl > 0
-        pers = v[5+nbet:5:end]
-        vels = v[5+nbet+1:5:end]
-        ecws = v[5+nbet+2:5:end]
-        esws = v[5+nbet+3:5:end]
-        chis = v[5+nbet+4:5:end]
-    else
-        pers = zeros(0)
-        vels = zeros(0)
-        ecws = zeros(0)
-        esws = zeros(0)
-        chis = zeros(0)
+    i = 5+nbet
+    Ps = zeros(post.npl)
+    Ks = zeros(post.npl)
+    ecws = zeros(post.npl)
+    esws = zeros(post.npl)
+    chis = zeros(post.npl)
+    for j in 1:post.npl
+        Ps[j] = exp(v[i])
+        i += 1
+
+        Ks[j] = exp(v[i])
+        i += 1
+
+        x = v[i:i+1]
+        z = Ensemble.Parameterizations.unit_disk_value(x)
+        ecws[j] = z[1]
+        esws[j] = z[2]
+        i += 2
+
+        chis[j] = Ensemble.Parameterizations.bounded_value(v[i], 0.0, 1.0)
+        i += 1
     end
 
-    PhysicalParams(mu, sigma, tau, nu, betas, pers, vels, ecws, esws, chis)
+    PhysicalParams(mu, sigma, tau, nu, betas, Ps, Ks, ecws, esws, chis)
 end
+
 
 function tov(post, p)
     nplp = post.npl*5
@@ -113,35 +120,45 @@ function tov(post, p)
     n = 4 + nplp + nbet
 
     v = zeros(n)
+    i = 1
 
-    v[1] = p.mu
-    v[2] = p.sigma
-    v[3] = p.tau
-    v[4] = p.nu
+    v[i] = p.mu
+    i += 1
+    
+    v[i] = log(p.sigma)
+    i += 1
 
-    v[5:5+nbet-1] = p.betas
+    v[i] = log(p.tau)
+    i += 1
 
-    if post.npl > 0
-        v[5+nbet:5:end] = p.pers
-        v[5+nbet+1:5:end] = p.vels
-        v[5+nbet+2:5:end] = p.ecws
-        v[5+nbet+3:5:end] = p.esws
-        v[5+nbet+4:5:end] = p.chis
+    v[i] = log(p.nu)
+    i += 1
+
+    v[i:i+nbet-1] = p.betas
+    i += nbet
+
+    for j in 1:post.npl
+        v[i] = log(p.pers[j])
+        i += 1
+
+        v[i] = log(p.vels[j])
+        i += 1
+
+        z = Float64[p.ecws[j], p.esws[j]]
+        x = Ensemble.Parameterizations.unit_disk_param(z)
+        v[i:i+1] = x
+        i += 2
+
+        v[i] = Ensemble.Parameterizations.bounded_param(p.chis[j], 0.0, 1.0)
+        i += 1
     end
 
     v
 end
 
 function logprior(post, p, v)
-    if p.sigma < 0.0
-        return -Inf
-    end
-    if p.tau < 0.0
-        return -Inf
-    end
-    if p.nu < 0.0
-        return -Inf
-    end
+    nplp = post.npl*5
+    nbet = size(p.betas, 1)
 
     T = post.ts[end] - post.ts[1]
     vmin = minimum(post.vs)
@@ -149,33 +166,31 @@ function logprior(post, p, v)
 
     V = vmax - vmin
 
+    lp = 0.0
+
+    # Jumping in log(sigma), log(tau), log(nu), but want flat priors
+    # p(logsigma) = sigma*p(sigma)
+    lp += log(p.sigma)
+    lp += log(p.tau)
+    lp += log(p.nu)
+
     if post.npl > 0
         for i in 1:post.npl
-            if p.pers[i] < 0.0
-                return -Inf
-            end
-            if p.pers[i] > 2.0*T
-                return -Inf
-            end
-            if p.vels[i] < 0.0
-                return -Inf
-            end
-            if p.vels[i] > 2.0*V
-                return -Inf
-            end
+            # Similarly, want flat priors on P and velocity
+            lp += log(p.pers[i])
+            lp += log(p.vels[i])
 
-            # Flat uniform prior in x-y plane out to e = 1
-            if p.ecws[i]*p.ecws[i] + p.esws[i]*p.esws[i] > 1.0
-                return -Inf
-            end
-            
-            if p.chis[i] < 0.0 || p.chis[i] > 1.0
-                return -Inf
-            end
+            z = Float64[p.ecws[i], p.esws[i]]
+            j = 5 + nbet + 2 + (i-1)*5
+            ve = v[j:j+1]
+            lp += Ensemble.Parameterizations.unit_disk_logjac(z, ve)
+
+            chiv = v[5 + nbet + 4 + (i-1)*5]
+            lp += Ensemble.Parameterizations.bounded_logjac(p.chis[i], chiv, 0.0, 1.0)
         end
     end
 
-    0.0
+    lp
 end
 
 function lnprob(post, v)
@@ -198,8 +213,8 @@ function addplanet(post, ps::Array{Float64, 2}, P0, K0)
     new_ps = zeros(size(ps,1)+5, nwalk)
     for i in 1:nwalk
         p = toparams(new_post, cat(1, ps[:,i], zeros(5)))
-        p.pers[end] = P0 + 1e-5*randn()
-        p.vels[end] = K0 + 1e-5*randn()
+        p.pers[end] = P0*(1.0 + 1e-5*randn())
+        p.vels[end] = K0*(1.0 + 1e-5*randn())
         p.ecws[end] = 0.1*rand()
         p.esws[end] = 0.1*rand()
         p.chis[end] = rand()
@@ -209,11 +224,12 @@ function addplanet(post, ps::Array{Float64, 2}, P0, K0)
 
     lnps = Float64[lnprob(new_post, new_ps[:,i]) for i in 1:nwalk]
 
-    pbest = copy(new_ps[:,indmax(lnps)])
+    ibest = indmax(lnps)
+    pbest = new_ps[:,ibest]
+
     for i in 1:nwalk
-        new_ps[:,i] = pbest + 1e-6*randn(size(pbest,1))
+        new_ps[:,i] = pbest + 1e-5*randn(size(pbest,1))
     end
-    lnps = Float64[lnprob(new_post, new_ps[:,i]) for i in 1:nwalk]
 
     new_post, new_ps, lnps
 end
@@ -228,41 +244,6 @@ function load_samples(io, nwalk)
     ps = reshape(ps, size(ps,1), div(size(ps,2),nwalk), nwalk)
 
     permutedims(ps, [1, 3, 2])
-end
-
-function run_to_convergence(post, ps0, lnps0; nmax = 128000)
-    n = 1000
-    thin = 10
-
-    ps = reshape(ps0, (size(ps0,1), size(ps0,2), 1))
-    lnps = reshape(lnps0, (size(lnps0, 1), 1))
-    
-    f = x -> lnprob(post, x)
-
-    while true
-        ps, lnps = Ensemble.EnsembleSampler.run_mcmc(ps0, lnps0, f, n, thin=thin)
-        rs = Ensemble.Acor.gelman_rubin_rs(ps)
-
-        rmax = maximum(rs)
-        
-        println("Ran MCMC for $n steps; rmax is $rmax")
-        
-        if rmax < 1.1
-            break
-        end
-
-        ps0 = ps[:,:,end]
-        lnps0 = lnps[:,end]
-        n = n*2
-        thin = thin*2
-
-        if n > nmax
-            println("Maximum number of iterations exceeded!")
-            return ps, lnps
-        end
-    end
-
-    ps, lnps
 end
 
 end
